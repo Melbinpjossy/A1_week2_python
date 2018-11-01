@@ -1,50 +1,58 @@
 from random import randint
 
-# available weapons => store this in a array
-choices = ["Rock", "Paper", "Scissors"]
+#create a list of play options
+t = ["Rock", "Paper", "Scissors", "quit"]
+player_life = 3;
+computer_life = 3;
+#assign a random play to the computer
+computer = t[randint(0,2)]
+ 
+#set player to False
 player = False
+while player == False:
+    print("Choose your weapon!\n")
+    player = input("Rock, Paper, Scissors?\n")
+    print("Computer Chooses: ", computer)
 
-
-
-while player is False:
-    print("Choose your Weapon!\n")
-    player = input("Rock, Paper or Scissor?\n")
-    print("Player chooses:", player)
-
-# make the computer pick one item at random
-computer = choices[randint(0,2)]
-
-#shows the computers choice in the terminal window
-print("Computer chooses: ", computer)
-
-if(player == computer):
-	print("Tie! Live to shoot another day")
-elif player == "Rock":
-    if computer == "Paper":
-    	#computer won
-    	print("You lose", computer,"cover",player)
+    if player == computer:
+        print("Tie!")
+    elif player == "Rock":
+        if computer == "Paper":
+            print("You lose!", computer, "covers", player)
+            player_life = player_life - 1;
+        else:
+            print("You win!", player, "smashes", computer)
+            computer_life = computer_life - 1;
+        print("Computer life = ", computer_life, "\n Player life = ", player_life)
+    elif player == "Paper":
+        if computer == "Scissors":
+            print("You lose!", computer, "cut", player)
+            player_life = player_life - 1;
+        else:
+            print("You win!", player, "covers", computer)
+            computer_life = computer_life - 1;
+        print("Computer life = ", computer_life, "\n Player life = ", player_life)
+    elif player == "Scissors":
+        if computer == "Rock":
+            print("You lose...", computer, "smashes", player)
+            player_life = player_life - 1;
+        else:
+            print("You win!", player, "cut", computer)
+            computer_life = computer_life - 1;
+        print("Computer life = ", computer_life, "\n Player life = ", player_life)
+    elif player == "quit":
+        exit()
     else:
-    	print("You win!", player, "smashes", computer)
-
-elif player == "Paper":
-    if computer == "Scissors":
-    	#computer won
-    	print("You lose", computer,"cuts",player)
-    else:
-    	print("You win!", player, "Covers", computer)
-
-elif player == "Scissors":
-    if computer == "Paper":
-    	#computer won
-    	print("You lose", computer,"smashes",player)
-    else:
-    	print("You win!", player, "Cuts", computer)
-
-elif player =="Quit":
-    exit()
-
-else:
-	print("Not a Vailid option, Check again, and check your spelling!\n")
-
-player = False
-computer = choices[randint(0,2)]
+        print("That's not a valid play. Check your spelling!")
+    print("Quit anytime by typing - quit\n")
+    if player_life == 0:
+        print("You loss, better luck next time")
+        player_life = 3;
+        computer_life = 3;
+    elif computer_life == 0:
+        print("You win, Mindful game from you")
+        player_life = 3;
+        computer_life = 3;
+    #player was set to True, but we want it to be False so the loop continues
+    player = False
+    computer = t[randint(0,2)] 
