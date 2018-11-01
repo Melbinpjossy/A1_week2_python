@@ -4,12 +4,12 @@
 
 Prerequisites: All you need is [Python](https://www.python.org/download/releases/3.0) to play.
 
-Clone the project, navigate to the directory - <code> cd directoryname</code>- and run the game.py file in aPython3 Terminal window for Mac/Linux.
+Clone the project, navigate to the directory - <code> cd directoryname</code>- and run the game.py file in a Python3 Terminal window for Mac/Linuxs.
 
-The rules are the same as the classic game:  
-1. Paper cover Rock   
+The rules are the same as the classic game:      
+1. Paper cover Rock     
 2. Scissors cuts Paper  
-3. Rock smashes Scissors  
+3. Rock smashes Scissors    
 
 ***Choose your weapon wisely!***
 
